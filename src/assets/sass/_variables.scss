@@ -1,0 +1,60 @@
+
+// General
+//-------------------------------------------------//
+$assetsImg: '/assets/img/';
+$assetsFonts:  '/assets/fonts/';
+//-------------------------------------------------//
+
+
+// Font
+//-------------------------------------------------//
+$body-font: serif;
+$headline-font: sans-serif;
+
+$fontBase: 16;
+$lineBase: 21;
+//-------------------------------------------------//
+
+
+// Colors
+//-------------------------------------------------//
+$white: #fff;
+
+$black: #333333;
+$blackDark: #000;
+
+$grey: #706f73;
+$greyDark: #d1d0d0;
+$greyDarkest: #7c7c7c;
+$greyLight: #e5e5e5;
+$greyLightest: #f0f0f0;
+
+$blue: #0076d9;
+//-------------------------------------------------//
+
+
+// Spacing
+//-------------------------------------------------//
+$spacing: 20;
+
+$spacingTiny: $spacing*.25+px;
+$spacingSmall:  $spacing*.5+px;
+$spacingMedium: $spacing*.75+px;
+$spacingDefault: $spacing+px;
+$spacingLarge: $spacing*2+px;
+$spacingBig: $spacing*3+px;
+$spacingHuge: $spacing*4+px;
+
+$borderRadiusDefault: 6px;
+//-------------------------------------------------//
+
+
+// Mixins
+//-------------------------------------------------//
+//@import "compass";
+@import "mixins/bourbon/bourbon";
+
+@import "mixins/breakpoint";
+@import "mixins/font-size";
+@import "mixins/other-mixins";
+//-------------------------------------------------//

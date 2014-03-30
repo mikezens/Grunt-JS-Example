@@ -1,0 +1,39 @@
+// Main - General
+//-------------------------------------------------//
+* {
+    @include box-sizing(border-box);
+}
+
+html,
+body {
+    overflow-x: hidden; // iOS6 body margin fix
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.desktop-only {
+    display: none;
+    
+    @include breakpoint(desktop) {
+        display: block;
+    }
+}
+
+.tablet-phone-only {
+    display: block;
+    
+    @include breakpoint(desktop) {
+        display: none;
+    }
+}
+
+.main {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+}
+//-------------------------------------------------//

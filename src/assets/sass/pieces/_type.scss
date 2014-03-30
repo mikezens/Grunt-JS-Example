@@ -1,0 +1,191 @@
+// Type Defaults
+//-------------------------------------------------//
+%bodyFontSize {
+    @include font-size(14, 22);
+}
+
+body {
+	font-size: $fontBase+px;
+	line-height: $lineBase+px;
+	
+	font-family: $body-font;
+	color: #444;
+	
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	color: $black;
+	font-family: $headline-font;
+	font-weight: normal; 
+	
+	a {
+    	font-weight: inherit; 
+	}
+}
+
+h2 {
+    @extend %bodyFontSize;
+}
+
+/*
+h1 { 
+    margin: 0 0 $spacingMedium;
+    
+    @include font-size(32, 36);
+    font-weight: 600;
+}
+
+
+h2 { 
+    margin: 0 0 $spacing*.35+px;
+    
+    font-family: $body-font;
+    @include font-size(25, 30);
+    font-weight: 300;
+    text-align: center;
+    
+    &,
+    a {
+        color: $blue;
+        text-decoration: none;
+    }
+}
+
+h3 { 
+    margin: 0 0 $spacing*1.5+px; 
+    
+    font-family: $headline-font;
+    @include font-size(16, 25);
+    text-align: center;
+    font-weight: 500;
+    
+    &,
+    a {
+        color: $greyLight;
+        text-decoration: none;
+    }
+}
+
+h4 {
+    margin: 0 0 $spacingTiny;
+    
+    @include font-size(20, 30);
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    &,
+    a {
+        color: $blue;
+        text-decoration: none;
+    }
+}
+
+
+h5 {  
+    margin: 0 0 $spacingTiny;
+    
+    @include font-size(15, 25);
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    &,
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+h6 { 
+    @include font-size(13, 18);
+    
+    &,
+    a {
+        color: $blue;
+        text-decoration: none;
+    }
+}
+*/
+
+ul li,
+ol li {
+    @include font-size(13, 18);
+    color: $black;
+}
+
+p { 
+    margin: 0 0 $spacingDefault 0; 
+    
+    @include font-size(14, 22);
+    color: $black;
+}
+
+em { 
+    font-style: italic; 
+}
+
+strong { 
+    font-weight: bold; 
+}
+
+small { 
+    font-size: 85%; 
+}
+//-------------------------------------------------//
+
+
+// Links
+//-------------------------------------------------//
+a { 
+    color: $blue;
+    text-decoration: none; 
+    outline: 0; 
+    
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+//-------------------------------------------------//
+
+
+// Lists
+//-------------------------------------------------//
+ul, 
+ol { 
+    margin-bottom: $spacingDefault; 
+    padding-left: 17px;
+}
+    
+ul { 
+    list-style: square outside; 
+}
+
+ol { 
+    list-style: decimal; 
+}
+
+li { 
+    margin-bottom: $spacingSmall; 
+    
+    line-height: 18px; 
+}
+
+ul.none { 
+    list-style: none outside; 
+}
+
+ul.circle { 
+    list-style: circle outside; 
+}
+
+ul.disc { 
+    list-style: disc outside; 
+}
+//-------------------------------------------------//

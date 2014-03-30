@@ -1,0 +1,183 @@
+// Grid - Variables
+// Credit: http://modulargrid.org/
+//-------------------------------------------------//
+$num-of-modules: 12;
+$module-width: 58px;
+$gutter: 20px;
+
+$page-width: 960px;
+$layout-width: 916px;
+
+$page-width-tablet: 580px;
+
+$page-width-mobile: 300px;
+
+$flex-gutter: percentage($gutter/$layout-width);
+//-------------------------------------------------//
+
+
+// Gride - Mixin
+// Credit: http://cognition.happycog.com/article/a-simple-grid-mixin-explained
+// CodePen: http://codepen.io/alliwagner/pen/vsHgm
+//-------------------------------------------------//
+@mixin grid($col-num, $gutter-num) {
+	width: percentage((($module-width * $col-num)+($gutter * $gutter-num))/$layout-width);
+}
+
+@mixin column-float() {
+    float: left;
+        
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@mixin column-gutter() {
+    &,
+    &.column-nested {
+        margin-right: $flex-gutter;
+    }
+}
+
+@mixin column-padded() {
+    &.column-padded-left {
+        padding-left: $spacingDefault;
+    }
+    
+    &.column-padded-right {
+        padding-right: $spacingDefault;
+    }
+    
+    &.column-padded-sides {
+        padding-left: $spacingDefault;
+        padding-right: $spacingDefault;
+    }
+}
+
+@mixin column-types() {
+    @include column-gutter();
+    @include column-padded();
+    
+    &.column-last {
+        margin-right: 0;
+    }
+}
+
+@mixin column-half() {
+    &,
+    &.column-nested {
+        @include grid(6,5);
+    }
+}
+
+@mixin column-one-third() {
+    &,
+    &.column-nested {
+        @include grid(4,3);
+    }
+}
+//-------------------------------------------------//
+
+
+// Grid - Layouts
+//-------------------------------------------------//
+.page-wrapper {
+    min-width: $page-width-mobile;
+    
+    margin: 0 auto;
+    
+    @include breakpoint(tablet) {
+        min-width: $page-width-tablet;
+        
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    
+    @include breakpoint(desktop) {
+        max-width: $layout-width;
+        min-width: $layout-width;    
+    }
+}
+
+.container { 
+    position: relative;
+    
+    margin: 0 auto;
+    padding: 0;
+    
+    @include clearfix();
+}
+//-------------------------------------------------//
+
+
+// Grid - Columns
+//-------------------------------------------------//
+// Elements
+.column-full,
+.column-half,
+.column-one-third {
+    width: 85%;
+    
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    
+    &.column-nested {
+        width: 100%;
+        
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+@include breakpoint(desktop-tablet) {
+    .column-full {    
+        @include column-float();
+    }
+
+    .column-full {
+        &,
+        &.column-nested {
+            @include grid(12,11);    
+        }
+        
+        &.column-medium {
+            &,
+            &.column-nested {
+                @include grid(9,8);    
+            }
+        }
+    }
+}
+
+@include breakpoint(desktop) {
+    .column-full {    
+        @include column-padded();
+    }
+}
+    
+//-------------------------------------------------//
+
+
+
+// Grid - Examples
+//-------------------------------------------------//
+/*
+.column-half {
+    @include column-float();
+    @include column-half();
+    
+    &:nth-child(odd) {
+        margin-right: $flex-gutter;
+    }
+    
+    &:nth-child(even) {
+        margin-right: 0;
+    }
+    
+    @include breakpoint(desktop) {
+        @include column-float();
+        @include column-types();
+        @include column-one-third();
+    }
+}
+*/
